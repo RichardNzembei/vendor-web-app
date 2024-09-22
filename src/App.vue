@@ -4,9 +4,14 @@ import homeCard from "./components/homeCard.vue";
 import contactCard from "./components/contactCard.vue";
 import productCard from "./components/productCard.vue";
 import cartCard from "./components/cartCard.vue";
+const productData = ref(
+  localStorage.getItem("productData")
+    ? JSON.parse(localStorage.getItem("productData"))
+    : []
+);
 const currentView = shallowRef(homeCard);
 const isCartvisible=ref(false)
-const cartItems=ref([])
+
 
 function onHashChange() {
   const hash = window.location.hash.substring(1);
@@ -27,12 +32,11 @@ function toogleSidebar(){
     isCartvisible.value=!isCartvisible.value
 }
 
-function handleAddToCart(product){
-  cartItems.value.push(product)
 
-}
+
+
 const totalQuantity = computed(() => {
-  return cartItems.value.reduce((total, item) => total + item.quantity, 0);
+  return productData.value.reduce((total, item) => total + item.quantity, 0);
 });
 </script>
 <template>
@@ -51,12 +55,11 @@ const totalQuantity = computed(() => {
   </nav>
   <component
    :is="currentView" 
-   :cartItems="cartItems"
-   @addToCart="handleAddToCart"
+   
   />
   <cart-card  
   v-if="isCartvisible"
-  :cartItems="cartItems"
+
   @toogle="toogleSidebar"
   />
 
