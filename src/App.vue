@@ -21,7 +21,7 @@ function onHashChange() {
 onMounted(() => {
   window.addEventListener("hashchange", onHashChange);
   onHashChange();
-});
+})
 
 function toogleSidebar(){
     isCartvisible.value=!isCartvisible.value
