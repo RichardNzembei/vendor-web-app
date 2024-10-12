@@ -24,3 +24,4 @@ Visit: [Vendor App](https://vendor-web-app.onrender.com/)
 1.nav links management using vue routing<br>
 2.API intergration for check out functionality<br>
 3.mobile App()<br>
+4.state management using Pinia
