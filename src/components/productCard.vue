@@ -10,8 +10,8 @@ const fetchProductData = async () => {
     const data = await response.json();
     return data.products;
   } catch (error) {
-    console.error("Error fetching student data:", error);
-    message.value = "Error fetching student data. Please try again later.";
+    console.error("Error fetching product data:", error);
+    message.value = "Error fetching product data. Please try again later.";
     return [];
   }
 };
